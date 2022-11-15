@@ -1,17 +1,17 @@
 
  /*
-*
-*
-脚本功能：哔哩哔哩解锁大会员
-软件版本：6.58.0
-下载地址：http://t.cn/AiOqwnn1
-脚本作者：Hausd0rff
-更新时间：2022-01-18
-脚本发布：https://t.me/yqc_123
-问题反馈：https://t.me/yqc_777
-使用声明：⚠️此脚本仅供学习与交流，
+/*
+/*
+/脚本功能：哔哩哔哩解锁大会员
+/软件版本：6.58.0
+/下载地址：http://t.cn/AiOqwnn1
+/脚本作者：Hausd0rff
+/更新时间：2022-01-18
+/脚本发布：https://t.me/yqc_123
+/问题反馈：https://t.me/yqc_777
+/使用声明：⚠️此脚本仅供学习与交流，
 /请勿转载与贩卖！⚠️⚠️⚠️#/
-*******************************
+/*******************************
 [rewrite_local]
 # > 哔哩哔哩解锁大会员
 ^https?:\/\/ap(i|p)\.bilibili\.com\/bilibili\.\w{3,4}\..+\/(View|PlayView|PlayConf|PlayerOnline|MainList|ViewProgress)$ url script-request-header https://github.com/zjy8998/qx/blob/4013b6bea567960b47e76ed1419c13887b61c39f/bilibili_VIP.js
