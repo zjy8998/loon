@@ -13,7 +13,7 @@
 /请勿转载与贩卖！⚠️⚠️⚠️#/
 /*******************************
 [rewrite_local]
-# > 哔哩哔哩解锁大会员
+/# > 哔哩哔哩解锁大会员
 ^https?:\/\/ap(i|p)\.bilibili\.com\/bilibili\.\w{3,4}\..+\/(View|PlayView|PlayConf|PlayerOnline|MainList|ViewProgress)$ url script-request-header https://github.com/zjy8998/qx/blob/4013b6bea567960b47e76ed1419c13887b61c39f/bilibili_VIP.js
 [mitm]
 hostname = *.bili*。*，124.239.240。*，101.89.57.66，218.94.210.66，240e：b1：9801：206:11:0:0：*
