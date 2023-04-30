@@ -25,7 +25,7 @@ TG频道群：https://t.me/WeiRenQAQ
 ^http[s]?:\/\/passport\.bilibili\.com\/x\/passport-login\/type url reject
 
 ^http[s]?:\/\/app\.bilibili\.com\/x\/v2\/splash\/show url reject-dict
-^http[s]?:\/\/((app)|(passport)|(api))\.bilibili\.com\/x\/.*(account\/mine\?|passport-login|vip|show\/tab|account\/myinfo\?).*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/BLBLVIP.js
+^http[s]?:\/\/((app)|(passport)|(api))\.bilibili\.com\/x\/.*(account\/mine\?|passport-login|vip|show\/tab|account\/myinfo\?).*$ url script-response-body https://github.com/zjy8998/qx/blob/main/bilibili_VIP.js
 ^http[s]?:\/\/((app)|(passport)|(api))\.bilibili\.com\/(bilibili|x\/v2|x\/vip|x\/resource|x\/passport).*$ url script-request-header https://raw.githubusercontent.com/WeiRen0/Scripts/main/BZTK.js
 
 #去播放页面Ad原作者脚本库 https://github.com/app2smile/rules
