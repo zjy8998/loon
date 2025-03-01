@@ -1,41 +1,12 @@
-var body=$response.body
-.replace(/"user_type"\s*:\s*\d+/g, '"user_type":1')
-.replace(/"user_y_type":\d/g,'"user_y_type":9')
-.replace(/"is_vip":\d/g,'"is_vip":6')
-.replace(/"vip_type":\d/g,'"vip_type":6')
-.replace(/"svip_score":\d/g,'"svip_score":9')
-.replace(/"svip_level":\d/g,'"svip_level":9')
-.replace(/"annual_fee_begin_time":".*?\"/g,'"annual_fee_begin_time":"2025-2-08 15:51:09"')
-.replace(/"annual_fee_end_time":".*?\"/g,'"annual_fee_end_time":"2025-2-08 15:51:09"')
-.replace(/"su_vip_end_time":".*?\"/g,'"su_vip_end_time":"2099-09-09"')
-.replace(/"vip_end_time":".*?\"/g,'"vip_end_time":"2099-09-09 15:51:09"')
-.replace(/"roam_type":\d/g,'"roam_type":1')
-.replace(/"roam_end_time":".*?\"/g,'"roam_end_time":"2025-02-21 21:54:36"')
-.replace(/"m_y_endtime":".*?\"/g,'"m_y_endtime":"2030-02-21 21:54:36"')
-.replace(/"vip_y_endtime":".*?\"/g,'"vip_y_endtime":"2099-09-09 21:54:36"')
-.replace(/"m_type":\d/g,'"m_type":1')
-.replace(/"m_is_old":\d/g,'"m_is_old":1')
-.replace(/"su_vip_y_endtime":".*?\"/g,'"su_vip_y_endtime":"2099-09-09"')
-.replace(/"roam_begin_time":".*?\"/g,'"roam_begin_time":"2025-02-21 21:54:36"')
-.replace(/"y_type":\d/g,'"y_type":1')
-.replace(/"signed_svip_before":\d/g,'"signed_svip_before":8')
-.replace(/"end_time":".*?\"/g,'"end_time":"2025-02-21 21:54:36"')
-.replace(/"duration":\d+/g,'"duration":14213245')
-.replace(/"p_grade":\d+/g,'"p_grade":20')
-.replace(/"p_current_point":\d+/g,'"p_current_point":14213245')
-.replace(/"p_next_grade":\d+/g,'"p_next_grade":20')
-.replace(/"m_reset_time":"\d+",/g,'"m_reset_time":"2099-02-21 21:54:36",')
-.replace(/"vip_clearday":"\d+"/g,'"vip_clearday":"2099-02-21 21:54:36"')
-.replace(/"h_signed":"\d+"/g,'"h_signed":"2099-02-21 21:54:36"')
-.replace(/"m_clearday":"\d+"/g,'"m_clearday":"2030-02-21 21:54:36"')
-.replace(/"su_vip_clearday":"\d+"/g,'"su_vip_clearday":"2030-02-21 21:54:36"')
-.replace(/"vip_list":"\d+"/g,'"vip_list":"2030-02-21 21:54:36"')
-.replace(/"m_end_time":"\d+"/g,'"m_end_time":"2025-2-08 15:51:09"')
-.replace(/"servertime":".*?\"/g,'"servertime":"2099-09-09 17:30:36"')
-.replace(/"m_end_time":".*?\"/g,'"m_end_time":"2099-09-09 13:43:38"')
-.replace(/"svip_score":\d/g,'"svip_score":1')
-.replace(/"m_is_old":\d/g,'"m_is_old":8')
-.replace(/("photo"\s*:\s*")[^"]*(")/g, '$1https://pavo.elongstatic.com/i/ori/1uG8Yb8CUWA.png$2') 
-.replace(/"nickname":".*?\"/g,'"nickname":"Rnik666🎖"');
+if (typeof `latex-inlineEquation response === "undefined" || !`response.body) {   $done({});    throw new Error("Invalid response"); }
 
-$done({ body });
+var body = $response.body; // 定义常量
+const VIP_DATE = "2099-09-09 23:59:59";
+const DYNAMIC_DATE = "2030-02-21 21:54:36";  // 通用替换函数
+function batchReplace(rules) {   rules.forEach(([pattern, replacement]) => {     body = body.replace(new RegExp(pattern, "g"), replacement);   });
+}  // 批量替换规则
+const replaceRules = [   ['"user_type"\\s*:\\s*\\d+', '"user_type":1'],   ['"user_y_type":\\d', '"user_y_type":9'],   ['"is_vip":\\d', '"is_vip":6'],   ['"vip_type":\\d', '"vip_type":6'],    ['"annual_fee_begin_time":".*?"', `"annual_fee_begin_time":"${VIP_DATE}"`],   ['"annual_fee_end_time":".*?"', `"annual_fee_end_time":"${VIP_DATE}"`],   ['"su_vip_end_time":".*?"', '"su_vip_end_time":"2099-09-09"'],   ['"vip_end_time":".*?"', `"vip_end_time":"${VIP_DATE}"`],    ['"svip_score":\\d+', '"svip_score":9'],     ['"svip_level":\\d+', '"svip_level":9'],   ['"duration":\\d+', '"duration":14213245'],      ['"m_is_old":(\\d+)', function(match, p1) {     return p1 === '0' ? '"m_is_old":8' : match;   }],      ['("photo"\\s*:\\s*")[^"]*(")', '`latex-inlineEquation 1https://pavo.elongstatic.com/i/ori/1uG8Yb8CUWA.png`2'],   ['"nickname":".*?"', '"nickname":"Rnik666🎖"']
+];  batchReplace(replaceRules);  [   {pat: /"roam_type":\d/g, val: 1},   {pat: /"y_type":\d/g, val: 1},   {pat: /"m_type":\d/g, val: 1}
+].forEach(item => {   body = body.replace(item.pat, ``latex-inlineEquation &`{item.val}`.replace(/\d$/, item.val));
+}); 
+$done({body});
