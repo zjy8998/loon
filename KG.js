@@ -15,7 +15,7 @@ hostname = gateway.kugou.com
 
 
 */
-var body = $response.body
+var body = $response.body;
 .replace(/"user_type"\s*:\s*\d+/g, '"user_type":1')
 .replace(/"user_y_type":\d/g,'"user_y_type":9')
 .replace(/"is_vip":\d/g,'"is_vip":6')
