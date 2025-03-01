@@ -1,28 +1,40 @@
-/*        
-        ➪：酷狗音乐
+var body = $response.body.replace(/"user_type"\s*:\s*\d+/g, '"user_type":1')
+.replace(/"user_y_type":\d/g,'"user_y_type":9')
+.replace(/"is_vip":\d/g,'"is_vip":6')
+.replace(/"vip_type":\d/g,'"vip_type":6')
+.replace(/"svip_score":\d/g,'"svip_score":9')
+.replace(/"svip_level":\d/g,'"svip_level":9')
+.replace(/"annual_fee_begin_time":".*?\"/g,'"annual_fee_begin_time":"2025-2-08 15:51:09"')
+.replace(/"annual_fee_end_time":".*?\"/g,'"annual_fee_end_time":"2025-2-08 15:51:09"')
+.replace(/"su_vip_end_time":".*?\"/g,'"su_vip_end_time":"2099-09-09"')
+.replace(/"vip_end_time":".*?\"/g,'"vip_end_time":"2099-09-09 15:51:09"')
+.replace(/"roam_type":\d/g,'"roam_type":1')
+.replace(/"roam_end_time":".*?\"/g,'"roam_end_time":"2025-02-21 21:54:36"')
+.replace(/"m_y_endtime":".*?\"/g,'"m_y_endtime":"2030-02-21 21:54:36"')
+.replace(/"vip_y_endtime":".*?\"/g,'"vip_y_endtime":"2099-09-09 21:54:36"')
+.replace(/"m_type":\d/g,'"m_type":1')
+.replace(/"m_is_old":\d/g,'"m_is_old":1')
+.replace(/"su_vip_y_endtime":".*?\"/g,'"su_vip_y_endtime":"2099-09-09"')
+.replace(/"roam_begin_time":".*?\"/g,'"roam_begin_time":"2025-02-21 21:54:36"')
+.replace(/"y_type":\d/g,'"y_type":1')
+.replace(/"signed_svip_before":\d/g,'"signed_svip_before":8')
+.replace(/"end_time":".*?\"/g,'"end_time":"2025-02-21 21:54:36"')
+.replace(/"duration":\d+/g,'"duration":14213245')
+.replace(/"p_grade":\d+/g,'"p_grade":20')
+.replace(/"p_current_point":\d+/g,'"p_current_point":14213245')
+.replace(/"p_next_grade":\d+/g,'"p_next_grade":20')
+.replace(/"m_reset_time":"\d+",/g,'"m_reset_time":"2099-02-21 21:54:36",')
+.replace(/"vip_clearday":"\d+"/g,'"vip_clearday":"2099-02-21 21:54:36"')
+.replace(/"h_signed":"\d+"/g,'"h_signed":"2099-02-21 21:54:36"')
+.replace(/"m_clearday":"\d+"/g,'"m_clearday":"2030-02-21 21:54:36"')
+.replace(/"su_vip_clearday":"\d+"/g,'"su_vip_clearday":"2030-02-21 21:54:36"')
+.replace(/"vip_list":"\d+"/g,'"vip_list":"2030-02-21 21:54:36"')
+.replace(/"m_end_time":"\d+"/g,'"m_end_time":"2025-2-08 15:51:09"')
+.replace(/"servertime":".*?\"/g,'"servertime":"2099-09-09 17:30:36"')
+.replace(/"m_end_time":".*?\"/g,'"m_end_time":"2099-09-09 13:43:38"')
+.replace(/"svip_score":\d/g,'"svip_score":1')
+.replace(/"m_is_old":\d/g,'"m_is_old":8')
+.replace(/("photo"\s*:\s*")[^"]*(")/g, '$1https://pavo.elongstatic.com/i/ori/1uG8Yb8CUWA.png$2') 
+.replace(/"nickname":".*?\"/g,'"nickname":"Rnik666🎖"');
 
-        ★：解锁永久🆅🅸🅿
-
-        𖣘： @𝙍𝙣𝙞𝙠➏➏➏
-
-𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹𒊹
-
-[rewrite_local] 
-^https?:\/\/gateway\.kugou\.com url script-response-body https://raw.githubusercontent.com/Rnik666/YJTJS/main/KG.js
-
-[MITM]
-hostname = gateway.kugou.com
-
-
-*/
-const FUTURE_DATE = "2099-09-09 23:59:59";
-const DYNAMIC_DATE = new Date();
-DYNAMIC_DATE.setFullYear(DYNAMIC_DATE.getFullYear() + 10); // 当前时间+10年
-const DYNAMIC_DATE_STR = DYNAMIC_DATE.toISOString().replace('T', ' ').slice(0, 19); const replaceRules = [     { pattern: /"user_type":\d+/g, replacement: '"user_type":1' },     { pattern: /"user_y_type":\d+/g, replacement: '"user_y_type":9' },     { pattern: /"is_vip":\d+/g, replacement: '"is_vip":6' },     { pattern: /"vip_type":\d+/g, replacement: '"vip_type":6' },      { pattern: /"annual_fee_(begin|end)_time":".*?"/g, 
-replacement: `"annual_fee_`latex-inlineEquation 1_time":"`{FUTURE_DATE}"` },     { pattern: /"(su_)?vip_(end_time|y_endtime)":".*?"/g, 
-replacement: `"`latex-inlineEquation 1vip_`2":"${DYNAMIC_DATE_STR}"` },      { pattern: /"svip_score":\d+/g, replacement: '"svip_score":9' },     { pattern: /"svip_level":\d+/g, replacement: '"svip_level":9' },     { pattern: /"duration":\d+/g, replacement: '"duration":14213245' },     { pattern: /"p_grade":\d+/g, replacement: '"p_grade":20' },      {     pattern: /("photo"\s*:\s*")[^"]*(")/g,     replacement: '`latex-inlineEquation 1https://pavo.elongstatic.com/i/ori/1uG8Yb8CUWA.png`2'   },     { pattern: /"nickname":".*?"/g, replacement: '"nickname":"Rnik666🎖"' } ];  let body = $response.body;
-replaceRules.forEach(rule => {   body = body.replace(rule.pattern, rule.replacement); });  const specialReplacements = { '"m_is_old":0': '"m_is_old":8',   '"roam_type":0': '"roam_type":1'};
-Object.entries(specialReplacements).forEach(([key, value]) => {   if (body.includes(key)) {     body = body.replace(key, value);   }
-}); 
 $done({ body });
-
