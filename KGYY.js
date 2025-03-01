@@ -1,5 +1,3 @@
-if (typeof `latex-inlineEquation response === "undefined" || !`response.body) {   $done({});    throw new Error("Invalid response"); }
-
 var body = $response.body; // 定义常量
 const VIP_DATE = "2099-09-09 23:59:59";
 const DYNAMIC_DATE = "2030-02-21 21:54:36";  // 通用替换函数
