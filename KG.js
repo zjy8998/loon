@@ -15,7 +15,7 @@ hostname = gateway.kugou.com
 
 
 */
-- [ ] var body = $response.body
+var body = $response.body
   .replace(/"user_type":\d+/g, '"user_type":1')
   .replace(/"user_y_type":\d+/g, '"user_y_type":9')   .replace(/"is_vip":\d+/g, '"is_vip":6')
   .replace(/"vip_type":\d+/g, '"vip_type":6')    .replace(/"annual_fee_begin_time":".*?"/g, '"annual_fee_begin_time":"2099-09-09 23:59:59"')
